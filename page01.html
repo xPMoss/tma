@@ -1,0 +1,42 @@
+
+<!-- Text -->
+<div class="row px-2 px-sm-4 mx-2 mt-4" id="">
+  <div class="col-12 col-sm-9 col-md-10">
+    <h4 class="">Top rated movies</h4>
+    <p class="">
+      Click on the movie posters to see more info about the movie.</br>
+      Then click on the Heart icon if you want to save it to your movies.
+    </p>
+  </div>
+
+  <!-- Button -->
+  <div class="col-12 col-sm-3 col-md-2 pt-sm-4 pb-4 ">
+    <button type="button" class="btn btn-primary p-2 text-truncate float-sm-right" onclick="showInfo('Not working yet</br>W.I.P</br>Failsafe button')">
+      Reload table
+    </button>
+  </div>
+  
+</div>
+
+<!-- Tabel -->
+<div class="col px-2 px-sm-4" id="">
+  <table 
+        class="table col-12"
+        id="table"
+        data-toggle="table"
+        data-card-view="false"
+        data-mobile-responsive="true"
+
+      >
+    <thead class="thead-dark">
+      <tr>
+        <th data-field="ranking" data-sortable="true">#</th>
+        <th data-field="poster_path" data-sortable="false">Poster</th>
+        <th data-field="title" data-sortable="true">Title</th>
+        <th data-field="vote_average" data-sortable="true">Rating</th>
+        <!--<th data-field="like" data-sortable="false">Like</th>-->
+      </tr>
+    </thead>
+          
+  </table>
+</div>

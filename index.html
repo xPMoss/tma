@@ -1,0 +1,101 @@
+
+<!-- DOKUMENTATION -->
+<!-- 
+
+Html koden laddas in med hjälp av Jqueries .load()
+Så den html koden ligger i de olika .html dokumenten: 
+navigation.html, page01.html, page02.html, page03.html, page04.html och footer.html.
+
+Mycket av sidornas innehåll skapas dynamiskt med hjälp av javascript.
+Information hämtas från The Movie Database (TMDB) med hjälp av deras API Och fås i form av Json.
+Denna kod finns i json.js.
+
+Själva logiken finns i script.js därifrån kallas de olika funktionerna och klasserna som används
+De olika funktionerna instancierar objekt från de olika klasserna i classes.js och sköter övrig logik.
+Dessa klasser generar objekt som skapar html element. Där i sätts också de olika bootstrap klasserna.
+
+Vad som ska visas på vilken sida styrs ifrån navigation.js. 
+Där körs det olika funktioner från script.js beroende på vilken sida som är laddad.
+
+Data från användaren sparas i webbläsarens localStorage så att den sedan kan läsas in efter att sidan laddats om eller stängts ner.
+Alternativet är en databas eller server-lösning, men valde en enklare väg här.
+
+-->
+
+<!-- Viss funktinalitet är inte implementerad än men lagt grunden där, tex. genres, olika vyer -->
+<!-- Sorry för det blev lite blandat med engelska och svenska i kommentarerna, började med engelska sedan... -->
+
+<!DOCTYPE html>
+<html lang="sv">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- minimerad CSS, dvs. utan radbrytningar, kommentarer o.dyl. -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <!-- Bootstraps egen JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+        <!--
+        <script src="https://your-site-or-cdn.com/fontawesome/v6.0.0-beta1/js/all.js" data-auto-replace-svg="nest"></script>
+        -->
+
+        <!-- Bootstrap table CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css">
+        
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+
+    <body>
+        <!-- Navigation -->
+        <div class="" id="nav"></div>
+        <!-- MAIN CONTENT -->
+        <div class="container-fluid col-lg-11 col-xl-10 m-0 p-0 mx-auto" id="page00"></div>
+        <div class="container-fluid col-lg-11 col-xl-10 m-0 p-0 mx-auto" id="page01"></div>
+        <div class="container-fluid col-lg-11 col-xl-10 m-0 p-0 mx-auto" id="page02"></div>
+        <div class="container-fluid col-lg-11 col-xl-10 m-0 p-0 mx-auto" id="page03"></div>
+        <!-- Spacer -->
+        <div class="container-fluid row col mb-4" id="">
+            <!-- Extra spacer vid stora skärmar -->
+            <div class="d-none d-md-block">
+                </br></br></br></br></br>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="container-fluid" id="footer"></div>
+        <!-- Popup -->
+        <div class="container-fluid" id="movieModalDiv"></div>
+
+        <!-- LOAD CONTENT -->
+        <script>
+            $( "#nav" ).load( "navigation.html" );
+            $( "#page00" ).load( "page00.html" );
+            $( "#page01" ).load( "page01.html" );
+            $( "#page02" ).load( "page02.html" );
+            $( "#page03" ).load( "page03.html" );
+            $( "#footer" ).load( "footer.html" );
+        </script>
+
+        <!-- Egen JavaScript -->
+        <script src="json.js"></script>
+        <script src="classes.js"></script>
+        <script src="navigation.js"></script>
+        <script src="script.js"></script>
+
+        <!-- Bootstrap Table JavaScript -->
+        <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>  
+        <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/extensions/mobile/bootstrap-table-mobile.min.js"></script>
+
+    </body>
+
+</html>
