@@ -1,3 +1,116 @@
+let genres = [
+    {12: "Adventure"},
+    {14: "Fantasy"},
+    {16: "Animation"},
+    {18: "Drama"},
+    {27: "Horror"},
+    {28: "Action"},
+    {35: "Comedy"},
+    {36: "History"},
+    {37: "Western"},
+    {53: "Thriller"},
+    {80: "Crime"},
+    {878: "Science Fiction"},
+    {9648: "Mystery"},
+    {99: "Documentary"},
+    {10749: "Romance"},
+    {10751: "Family"},
+    {10752: "War"},
+    {10770: "TV Movie"}
+]
+
+function getGenre(id) {
+    let string;
+
+    switch(id) {
+        case 12:
+            string = "Adventure"
+            break;
+        case 14:
+            string = "Fantasy"
+            break;
+        case 16:
+            string = "Animation"
+            break;
+        case 18:
+            string = "Drama"
+            break;
+        case 27:
+            string = "Horror"
+            break;
+        case 28:
+            string = "Action"
+            break;
+        case 35:
+            string = "Comedy"
+            break;
+        case 36:
+            string = "History"
+            break;
+        case 37:
+            string = "Western"
+            break;
+        case 53:
+            string = "Thriller"
+            break;
+        case 80:
+            string = "Crime"
+            break;
+        case 99:
+            string = "Documentary"
+            break;
+        case 878:
+            string = "Science Fiction"
+            break;
+        case 9648:
+            string = "Mystery"
+            break;
+        case 10749:
+            string = "Romance"
+            break;
+        case 10751:
+            string = "Family"
+            break;
+        case 10752:
+            string = "War"
+            break;
+        case 10770:
+            string = "TV Movie"
+            break;
+        default:
+            // code block
+    }
+
+
+    return string
+
+}
+
+/*
+10402, Music
+classes.js:42 10749, Romance
+classes.js:42 10751, Family
+classes.js:42 10752, War
+classes.js:42 10770, TV Movie
+
+classes.js:42 12, Adventure
+classes.js:42 14, Fantasy
+classes.js:42 16, Animation
+classes.js:42 18, Drama
+classes.js:42 27, Horror
+classes.js:42 28, Action
+classes.js:42 35, Comedy
+classes.js:42 36, History
+classes.js:42 37, Western
+classes.js:42 53, Thriller
+classes.js:42 80, Crime
+classes.js:42 878, Science Fiction
+classes.js:42 9648, Mystery
+classes.js:42 99, Documentary
+
+*/
+
+
 
 // RETURNS LIKE BUTTON OBJECT //
 /* Kräver ett movie object */
@@ -225,17 +338,25 @@ class List{
 
         li = document.createElement("li");
         li.classList.add("list-group-item");
-        li.innerHTML = "<b>Genres:</b></br> ----- ";
+        li.innerHTML = "<b>Genres:</b></br>";
+        for (let i = 0; i < movie.genre_ids.length; i++) {
+            let genreT = getGenre(movie.genre_ids[i]);
+            li.innerHTML += "" + genreT;
+            if (i != movie.genre_ids.length - 1) {
+                li.innerHTML += ", ";
+            }
+            
+        }
         ul.appendChild(li);
 
         li = document.createElement("li");
         li.classList.add("list-group-item");
-        li.innerHTML = "<b>Release Date: </b>" + movie.release_date;
+        li.innerHTML = "<b>Release Date:</b></br>" + movie.release_date;
         ul.appendChild(li);
 
         li = document.createElement("li");
         li.classList.add("list-group-item");
-        li.innerHTML = "<b>Rating: </b>" + movie.vote_average;
+        li.innerHTML = "<b>Rating: </b></br>" + movie.vote_average;
         ul.appendChild(li);
 
         return ul;

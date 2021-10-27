@@ -4,7 +4,7 @@
 // RETURNS LIST OF MOVIES //
 /* Hämtar en lista av top filmer */
 async function LoadTrendingMovies(){
-    let url = 'https://api.themoviedb.org/3/trending/all/day?api_key=837510eb0be61188d342d8c49173bb6e&language=en-US';
+    let url = 'https://api.themoviedb.org/3/trending/movie/day?api_key=837510eb0be61188d342d8c49173bb6e&language=en-US';
 
     const response = await fetch(url);
     let movies = await response.json()

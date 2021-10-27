@@ -214,16 +214,21 @@ function clearSearchResults(){
 async function showMovieModal(movie){
     let movieModalDiv = document.getElementById("movieModalDiv");
     movieModalDiv.innerHTML = ""; // Töm container
-
+    
     /* Kolla ifall det är en film eller ett film id */
     if(typeof movie == "number"){
         movie = await loadMovie(movie); // Hämta data från TMDB
+
         movieModalDiv.appendChild(await new MovieModal(movie, "large"));
         $('#movieModal').modal('show')
     }
     else{
+
         movieModalDiv.appendChild(new MovieModal(movie, "large")); // Skapa ny modal med innehåll från klickad film 
+
     }
+
+
 
 }
 // ----------- //
